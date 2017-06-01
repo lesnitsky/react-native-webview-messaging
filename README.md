@@ -29,7 +29,7 @@ export class ExampleView extends Component {
           ref={ webview => { this.webview = webview; }}
           source={ require('./some-page.html') }
         />
-        <TouchableHighlight onPress={this.sendBessageToWebView} underlayColor='transparent'>
+        <TouchableHighlight onPress={this.sendMessageToWebView} underlayColor='transparent'>
           <Text>Send message to WebView</Text>
         </TouchableHighlight>
       </View>
