@@ -1,5 +1,7 @@
 # React Native WebView Messaging
 
+> This package is used in RN app as a glue for WebGL component rendered inside WebView. If you have any issues with usage/installation just [submit an issue](https://github.com/R1ZZU/react-native-webview-messaging/issues). I'd appreciate your feedback :smirk:
+
 ## Installation
 
 ```sh
