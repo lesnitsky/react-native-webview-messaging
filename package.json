@@ -1,6 +1,6 @@
 {
   "name": "react-native-webview-messaging",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "React Native WebView wrapper with neat communication API",
   "keywords": [
     "react-native",
@@ -18,9 +18,9 @@
   },
   "bugs": "https://github.com/R1ZZU/react-native-webview-messaging/issues",
   "devDependencies": {
-    "babel-preset-es2015": "^6.24.1",
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
     "raw-loader": "^0.5.1",
     "webpack": "^2.6.1",
     "wrapper-webpack-plugin": "^0.1.11"
