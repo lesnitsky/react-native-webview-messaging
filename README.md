@@ -47,7 +47,7 @@ export class ExampleView extends Component {
   componentDidMount() {
     this.webview.messagesChannel.on('text', text => console.log(text));
     this.webview.messagesChannel.on('json', json => console.log(json));
-    this.webview.messagesChannel.on('custom-event-from-webview', eventDate => console.log(eventData));
+    this.webview.messagesChannel.on('custom-event-from-webview', eventData => console.log(eventData));
   }
 
   sendMessageToWebView = () => {
