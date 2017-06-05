@@ -1,6 +1,6 @@
 {
   "name": "react-native-webview-messaging",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "React Native WebView wrapper with neat communication API",
   "keywords": [
     "react-native",
