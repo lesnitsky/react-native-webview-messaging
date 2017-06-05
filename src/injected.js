@@ -15,7 +15,13 @@ class RNMessageChannel extends EventEmitter {
     }));
   }
 
-  emit(eventName, eventData) {
+  emit(eventName, eventData, fromRN) {
+    super.emit(eventName, eventData);
+
+    if (fromRN) {
+      return;
+    }
+
     window.postMessage(JSON.stringify({
       type: 'event',
       meta: {

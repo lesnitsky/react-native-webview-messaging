@@ -30,13 +30,13 @@ export class WebView extends Component {
 
     switch (parsedMsg.type) {
       case 'json':
-        this.messagesChannel.emit('json', JSON.parse(parsedMsg.payload));
+        this.messagesChannel.emit('json', parsedMsg.payload);
         break;
       case 'text':
         this.messagesChannel.emit('text', parsedMsg.payload);
         break;
       case 'event':
-        this.messagesChannel.emit(parsedMsg.meta.eventName, parsedMsg.oayload);
+        this.messagesChannel.emit(parsedMsg.meta.eventName, parsedMsg.payload);
         break;
     }
   }
@@ -47,19 +47,19 @@ export class WebView extends Component {
 
   send(string) {
     this.webview.injectJavaScript(`(function (global) {
-      global.RNMessageChannel.emit('text', ${string});
+      global.RNMessageChannel.emit('text', ${JSON.stringify(string)}, true);
     })(window)`);
   }
 
   sendJSON(json) {
     this.webview.injectJavaScript(`(function (global) {
-      global.RNMessageChannel.emit('json', ${JSON.stringify(json)});
+      global.RNMessageChannel.emit('json', ${JSON.stringify(json)}, true);
     })(window)`);
   }
 
   emit(eventName, eventData) {
     this.webview.injectJavaScript(`(function (global) {
-      global.RNMessageChannel.emit(${eventName}, ${JSON.stringify(eventData)});
+      global.RNMessageChannel.emit(${JSON.stringify(eventName)}, ${JSON.stringify(eventData)}, true);
     })(window)`);
   }
 }
