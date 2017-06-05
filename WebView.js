@@ -35,6 +35,9 @@ export class WebView extends Component {
       case 'text':
         this.messagesChannel.emit('text', parsedMsg.payload);
         break;
+      case 'event':
+        this.messagesChannel.emit(parsedMsg.meta.eventName, parsedMsg.oayload);
+        break;
     }
   }
 
@@ -51,6 +54,12 @@ export class WebView extends Component {
   sendJSON(json) {
     this.webview.injectJavaScript(`(function (global) {
       global.RNMessageChannel.emit('json', ${JSON.stringify(json)});
+    })(window)`);
+  }
+
+  emit(eventName, eventData) {
+    this.webview.injectJavaScript(`(function (global) {
+      global.RNMessageChannel.emit(${eventName}, ${JSON.stringify(eventData)});
     })(window)`);
   }
 }
