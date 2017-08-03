@@ -8,6 +8,23 @@ module.exports = {
     path: path.join(__dirname, 'dist'),
     filename: '[name].bundle.js',
   },
+  module: {
+    rules: [{
+      test: /\.js$/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: [
+            ['env', {
+              targets: {
+                browsers: ['last 2 versions', 'safari >= 9.3']
+              }
+            }]
+          ]
+        }
+      }
+    }]
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: './web/index.tpl.html',
