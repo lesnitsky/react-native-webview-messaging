@@ -5,7 +5,7 @@
 ## Quick start guide
 ```sh
 git clone https://github.com/R1ZZU/react-native-webview-messaging.git
-cd ./react-native-webview-messaging/example
+cd ./react-native-webview-messaging/examples/react-native
 yarn # or npm install
 yarn build-web # or npm run build-web
 yarn ios # or npm run ios
