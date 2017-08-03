@@ -49,7 +49,7 @@ export default class App extends React.Component {
     const { messagesChannel } = this.webview;
 
     messagesChannel.on('text', text => this.setState({
-      message: `Recevied text from webivew: ${text}`
+      message: `Recevied text from webview: ${text}`
     }));
 
     messagesChannel.on('json', json => this.setState({
