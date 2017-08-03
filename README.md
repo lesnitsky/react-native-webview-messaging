@@ -101,9 +101,9 @@ extends WebView from `react-native`
 ### Import
 ```javascript
 // es6 modules
-import { WebView } from 'react-native-messaging/WebView';
+import { WebView } from 'react-native-webview-messaging/WebView';
 // commonJS
-const { WebView } = require('react-native-messaging/WebView');
+const { WebView } = require('react-native-webview-messaging/WebView');
 ```
 
 ### WebView#send(text: String)
@@ -145,11 +145,11 @@ Emits custom event to `WebView#messagesChannel` in RN app
 ### Import
 ```javascript
 // es6 modules
-import RNMessagesChannel from 'react-native-messaging';
+import RNMessagesChannel from 'react-native-webview-messaging';
 // commonJS
-const RNMessagesChannel = require('react-native-messaging');
-// no module system
-const RNMessagesChannel = window.RNMessagesChannel;
+const RNMessagesChannel = require('react-native-webview-messaging');
+// or you can access it directily from window
+window.RNMessagesChannel.emit('some-event');
 ```
 
 ## LICENSE
