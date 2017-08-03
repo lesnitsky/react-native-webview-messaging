@@ -47,19 +47,19 @@ export class WebView extends Component {
 
   send(string) {
     this.webview.injectJavaScript(`(function (global) {
-      global.RNMessageChannel.emit('text', ${JSON.stringify(string)}, true);
+      global.RNMessagesChannel.emit('text', ${JSON.stringify(string)}, true);
     })(window)`);
   }
 
   sendJSON(json) {
     this.webview.injectJavaScript(`(function (global) {
-      global.RNMessageChannel.emit('json', ${JSON.stringify(json)}, true);
+      global.RNMessagesChannel.emit('json', ${JSON.stringify(json)}, true);
     })(window)`);
   }
 
   emit(eventName, eventData) {
     this.webview.injectJavaScript(`(function (global) {
-      global.RNMessageChannel.emit(${JSON.stringify(eventName)}, ${JSON.stringify(eventData)}, true);
+      global.RNMessagesChannel.emit(${JSON.stringify(eventName)}, ${JSON.stringify(eventData)}, true);
     })(window)`);
   }
 }
