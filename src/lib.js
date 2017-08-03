@@ -1,1 +1,1 @@
-module.exports = window.RNMessageChannel;
+module.exports = window.RNMessagesChannel;

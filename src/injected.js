@@ -1,6 +1,6 @@
 import EventEmitter from 'events';
 
-class RNMessageChannel extends EventEmitter {
+class RNMessagesChannel extends EventEmitter {
   sendJSON(json) {
     window.postMessage(JSON.stringify({
       type: 'json',
@@ -32,4 +32,4 @@ class RNMessageChannel extends EventEmitter {
   }
 }
 
-window.RNMessageChannel = new RNMessageChannel();
+window.RNMessagesChannel = new RNMessagesChannel();
