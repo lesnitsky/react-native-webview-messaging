@@ -4765,9 +4765,9 @@ react-native-vector-icons@4.1.1:
     prop-types "^15.5.8"
     yargs "^6.3.0"
 
-react-native-webview-messaging@^0.3.7:
-  version "0.3.7"
-  resolved "https://registry.yarnpkg.com/react-native-webview-messaging/-/react-native-webview-messaging-0.3.7.tgz#4b70c528a515e9cc49a21c3845509867dbaf3e37"
+react-native-webview-messaging@0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/react-native-webview-messaging/-/react-native-webview-messaging-0.4.1.tgz#fcd8f0ddef4728be774287a0fe57b1440de0f2a9"
   dependencies:
     events "^1.1.1"
 
@@ -6061,7 +6061,7 @@ webpack@^2.6.1:
     webpack-sources "^1.0.1"
     yargs "^6.0.0"
 
-"websql@github:expo/node-websql#18.0.0":
+websql@expo/node-websql#18.0.0:
   version "0.4.4"
   resolved "https://codeload.github.com/expo/node-websql/tar.gz/e364fa65146a9e2157a19e5c719e7702c2b6b87a"
   dependencies:

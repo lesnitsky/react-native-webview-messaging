@@ -3942,9 +3942,9 @@ react-devtools-core@2.3.1:
     shell-quote "^1.6.1"
     ws "^2.0.3"
 
-react-native-webview-messaging@^0.3.7:
-  version "0.3.7"
-  resolved "https://registry.yarnpkg.com/react-native-webview-messaging/-/react-native-webview-messaging-0.3.7.tgz#4b70c528a515e9cc49a21c3845509867dbaf3e37"
+react-native-webview-messaging@0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/react-native-webview-messaging/-/react-native-webview-messaging-0.4.1.tgz#fcd8f0ddef4728be774287a0fe57b1440de0f2a9"
   dependencies:
     events "^1.1.1"
 
