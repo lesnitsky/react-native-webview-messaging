@@ -1,7 +1,6 @@
 # React Native WebView Messaging
 
-> This package is used in RN app as a glue for WebGL component rendered inside WebView. If you have any issues with usage/installation just [submit an issue](https://github.com/R1ZZU/react-native-webview-messaging/issues). I'd appreciate your feedback :smirk:
----
+React Native WebView extension with 2-way event-based communication API
 
 ![Demo](http://i.imgur.com/BPKQpLf.gif)
 
@@ -32,9 +31,10 @@ or with yarn
 yarn add react-native-webview-messaging
 ```
 
-## Usage
+## Examples
 
-Check out [example directory](https://github.com/R1ZZU/react-native-webview-messaging/tree/master/example)
+* [Expo SDK](https://github.com/R1ZZU/react-native-webview-messaging/tree/master/examples/expo)
+* [React Native](https://github.com/R1ZZU/react-native-webview-messaging/tree/master/examples/react-native)
 
 ### React Native view
 
