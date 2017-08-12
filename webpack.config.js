@@ -8,6 +8,8 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].js',
+    library: 'react-native-webview-messaging',
+    libraryTarget: 'umd'
   },
   module: {
     rules: [{
