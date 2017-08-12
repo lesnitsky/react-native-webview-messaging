@@ -1,10 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
-const WrapperPlugin = require('wrapper-webpack-plugin');
 
 module.exports = {
   entry: {
-    injected: './src/injected.js',
+    lib: './src/lib.js',
   },
   output: {
     path: path.join(__dirname, 'dist'),
@@ -18,9 +17,5 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.UglifyJsPlugin(),
-    new WrapperPlugin({
-      header: 'module.exports = `',
-      footer: '`;'
-    })
   ]
 };

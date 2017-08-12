@@ -2,8 +2,6 @@ import EventEmitter from 'events';
 import React, { Component } from 'react';
 import { WebView as NativeWebView } from 'react-native';
 
-import registerRNMessageChannel from './dist/injected';
-
 export class WebView extends Component {
   constructor(props) {
     super(props);
@@ -41,25 +39,21 @@ export class WebView extends Component {
     }
   }
 
-  componentDidMount() {
-    this.webview.injectJavaScript(registerRNMessageChannel);
-  }
-
   send(string) {
     this.webview.injectJavaScript(`(function (global) {
-      global.RNMessagesChannel.emit('text', ${JSON.stringify(string)}, true);
+      global.RNMessagesChannel && global.RNMessagesChannel.emit('text', ${JSON.stringify(string)}, true);
     })(window)`);
   }
 
   sendJSON(json) {
     this.webview.injectJavaScript(`(function (global) {
-      global.RNMessagesChannel.emit('json', ${JSON.stringify(json)}, true);
+      global.RNMessagesChannel && global.RNMessagesChannel.emit('json', ${JSON.stringify(json)}, true);
     })(window)`);
   }
 
   emit(eventName, eventData) {
     this.webview.injectJavaScript(`(function (global) {
-      global.RNMessagesChannel.emit(${JSON.stringify(eventName)}, ${JSON.stringify(eventData)}, true);
+      global.RNMessagesChannel && global.RNMessagesChannel.emit(${JSON.stringify(eventName)}, ${JSON.stringify(eventData)}, true);
     })(window)`);
   }
 }
