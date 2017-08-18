@@ -148,8 +148,6 @@ Emits custom event to `WebView#messagesChannel` in RN app
 import RNMessagesChannel from 'react-native-webview-messaging';
 // commonJS
 const RNMessagesChannel = require('react-native-webview-messaging');
-// or you can access it directly from window
-window.RNMessagesChannel.emit('some-event');
 ```
 
 ## LICENSE
