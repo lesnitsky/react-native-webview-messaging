@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "jest-expo": "~1.0.1",
+    "jest-expo": "~20.0.0",
     "react-native-scripts": "1.1.0",
     "react-test-renderer": "16.0.0-alpha.6"
   },
@@ -22,11 +22,11 @@
   "dependencies": {
     "babel-loader": "^7.1.1",
     "babel-preset-env": "^1.6.0",
-    "expo": "^19.0.0",
+    "expo": "^20.0.0",
     "html-webpack-inline-source-plugin": "^0.0.9",
     "html-webpack-plugin": "^2.28.0",
     "react": "16.0.0-alpha.12",
-    "react-native": "^0.46.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-20.0.0.tar.gz",
     "react-native-webview-messaging": "^1.1.0",
     "webpack": "^2.6.1"
   }
