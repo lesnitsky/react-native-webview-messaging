@@ -21,7 +21,7 @@ export class WebView extends Component {
 
   _refWebView = (webview) => {
     this.webview = webview;
-  };
+  }
 
   onMessage = (event) => {
     const { data } = event.nativeEvent;
@@ -48,7 +48,7 @@ export class WebView extends Component {
         this.messagesChannel.emit(parsedMsg.meta.eventName, parsedMsg.payload);
         break;
     }
-  };
+  }
 
   send(string) {
     this.webview.injectJavaScript(`(function (global) {
