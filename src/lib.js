@@ -1,8 +1,5 @@
 import EventEmitter from 'events';
-
-// package unique prefix for all messages
-const UNIQUE_MESSAGE_PREFIX = "f251c210-e7c9-42fa-bae3-b9352ec3722a";
-
+import { RN_MESSAGES_CHANNEL_PREFIX } from '../config';
 
 // create string from passed object
 function createStringified(type, payload){
@@ -14,11 +11,11 @@ function createStringified(type, payload){
 
 class RNMessagesChannel extends EventEmitter {
   sendJSON(json) {
-    window.postMessage(UNIQUE_MESSAGE_PREFIX + createStringified("json", json));
+    window.postMessage(RN_MESSAGES_CHANNEL_PREFIX + createStringified('json', json));
   }
 
   send(string) {
-    window.postMessage(UNIQUE_MESSAGE_PREFIX + createStringified("text", string));
+    window.postMessage(RN_MESSAGES_CHANNEL_PREFIX + createStringified('text', string));
   }
 
   emit(eventName, eventData, fromRN) {
@@ -28,7 +25,7 @@ class RNMessagesChannel extends EventEmitter {
       return;
     }
 
-    window.postMessage(UNIQUE_MESSAGE_PREFIX + JSON.stringify({
+    window.postMessage(RN_MESSAGES_CHANNEL_PREFIX + JSON.stringify({
       type: 'event',
       meta: {
         eventName
