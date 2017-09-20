@@ -40,7 +40,7 @@ yarn add react-native-webview-messaging
 
 ```javascript
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, TouchableHighlight } from 'react-native';
 import { WebView } from 'react-native-webview-messaging/WebView';
 
 export class ExampleView extends Component {
