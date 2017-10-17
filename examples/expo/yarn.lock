@@ -4800,9 +4800,9 @@ react-native-vector-icons@4.1.1:
     prop-types "^15.5.8"
     yargs "^6.3.0"
 
-react-native-webview-messaging@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/react-native-webview-messaging/-/react-native-webview-messaging-1.2.0.tgz#fe23edfb547048d37e33630da6d0c8cd28bad9d7"
+react-native-webview-messaging@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/react-native-webview-messaging/-/react-native-webview-messaging-1.2.1.tgz#f3443f3ec49e823b3db6875386b7eb1a3883fad2"
   dependencies:
     events "^1.1.1"
 
