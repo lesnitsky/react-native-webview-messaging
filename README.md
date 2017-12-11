@@ -5,7 +5,8 @@ React Native WebView extension with 2-way event-based communication API
 ![Demo](http://i.imgur.com/BPKQpLf.gif)
 
 * [Installation](#installation)
-* [Usage](#usage)
+* [Roadmap](#roadmap)
+* Usage
   - [React Native View](#react-native-view)
   - [WebView](#webview)
 * [API Docs](#api-docs)
@@ -30,6 +31,11 @@ or with yarn
 ```sh
 yarn add react-native-webview-messaging
 ```
+
+## Roadmap
+
+* channel for redux actions
+* enhanced dev environment
 
 ## Examples
 
