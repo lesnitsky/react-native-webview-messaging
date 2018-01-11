@@ -1,34 +1,39 @@
-import RNMessageChannel from 'react-native-webview-messaging';
+import { connectToRemote } from 'react-native-webview-messaging/web';
 
 const helloBtn = document.querySelector('#hello');
 const jsonBtn = document.querySelector('#json');
 const eventBtn = document.querySelector('#event');
 const messagesContainer = document.querySelector('p');
 
-helloBtn.addEventListener('click', () => {
-  RNMessageChannel.send('hello');
-});
+(async () => {
+  const remote = await connectToRemote();
 
-jsonBtn.addEventListener('click', () => {
-  RNMessageChannel.sendJSON({
-    payload: 'hello'
+  helloBtn.addEventListener('click', () => {
+    remote.send('hello');
   });
-});
 
-eventBtn.addEventListener('click', () => {
-  RNMessageChannel.emit('greetingFromWebview', {
-    payload: 'hello'
+  jsonBtn.addEventListener('click', () => {
+    remote.sendJSON({
+      payload: 'hello'
+    });
   });
-});
 
-RNMessageChannel.on('text', text => {
-  messagesContainer.innerHTML = `Received text from RN: ${text}`;
-});
+  eventBtn.addEventListener('click', () => {
+    remote.emit('greetingFromWebview', {
+      payload: 'hello'
+    });
+  });
 
-RNMessageChannel.on('json', text => {
-  messagesContainer.innerHTML = `Received json from RN: ${JSON.stringify(text)}`;
-});
+  remote.on('text', text => {
+    messagesContainer.innerHTML = `Received text from RN: ${text}`;
+  });
 
-RNMessageChannel.on('greetingFromRN', event => {
-  messagesContainer.innerHTML = `Received "greetingFromRN" event: ${JSON.stringify(event)}`;
-});
+  remote.on('json', text => {
+    messagesContainer.innerHTML = `Received json from RN: ${JSON.stringify(text)}`;
+  });
+
+  remote.on('greetingFromRN', event => {
+    messagesContainer.innerHTML = `Received "greetingFromRN" event: ${JSON.stringify(event)}`;
+  });
+
+})();

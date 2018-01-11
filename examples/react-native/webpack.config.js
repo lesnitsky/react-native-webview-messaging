@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
 
 module.exports = {
-  entry: './web/index.js',
+  entry: ['babel-polyfill', './web/index.js'],
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].bundle.js',
@@ -11,6 +11,7 @@ module.exports = {
   module: {
     rules: [{
       test: /\.js$/,
+      exclude: /node_modules/,
       use: {
         loader: 'babel-loader',
         options: {
@@ -21,7 +22,7 @@ module.exports = {
               }
             }]
           ]
-        }
+        },
       }
     }]
   },
