@@ -1,6 +1,8 @@
 import React from 'react';
-import { Text, View, Button } from 'react-native';
-import { WebView } from 'react-native-webview-messaging/WebView';
+import { Text, View, Button, WebView } from 'react-native';
+import { connectToRemote, withMessaging } from 'react-native-webview-messaging';
+
+const WebViewWithMessaging = withMessaging(WebView);
 
 export default class App extends React.Component {
   constructor() {
@@ -36,7 +38,11 @@ export default class App extends React.Component {
             />
           </View>
         </View>
-        <WebView source={require('./dist/index.html')} style={{ flex: 1 }} ref={this._refWebView}/>
+        <WebViewWithMessaging
+          source={require('./dist/index.html')}
+          style={{ flex: 1 }}
+          ref={this._refWebView}
+        />
       </View>
     );
   }
@@ -46,30 +52,37 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    const { messagesChannel } = this.webview;
+    connectToRemote(this.webview)
+      .then(remote => {
+        this.remote = remote;
+        this.bindListeners();
+      })
+      .catch(console.log);
+  }
 
-    messagesChannel.on('text', text => this.setState({
+  bindListeners() {
+    this.remote.on('text', text => this.setState({
       message: `Recevied text from webview: ${text}`
     }));
 
-    messagesChannel.on('json', json => this.setState({
+    this.remote.on('json', json => this.setState({
       message: `Received json from webview: ${JSON.stringify(json)}`
     }));
 
-    messagesChannel.on('greetingFromWebview', event => this.setState({
+    this.remote.on('greetingFromWebview', event => this.setState({
       message: `Received "greetingFromWebview" event: ${JSON.stringify(event)}`
     }));
   }
 
   sendHelloToWebView = () => {
-    this.webview.send('hello');
+    this.remote.send('hello');
   }
 
   sendJsonToWebView = () => {
-    this.webview.sendJSON({ payload: 'hello' });
+    this.remote.sendJSON({ payload: 'hello' });
   }
 
   emitGreetingEventToWebView = () => {
-    this.webview.emit('greetingFromRN', { payload: 'hello' });
+    this.remote.emit('greetingFromRN', { payload: 'hello' });
   }
 }

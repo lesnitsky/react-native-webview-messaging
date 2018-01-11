@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "babel-polyfill": "^6.26.0",
     "jest-expo": "~20.0.0",
     "react-native-scripts": "1.1.0",
     "react-test-renderer": "16.0.0-alpha.6"
@@ -27,7 +28,7 @@
     "html-webpack-plugin": "^2.28.0",
     "react": "16.0.0-alpha.12",
     "react-native": "https://github.com/expo/react-native/archive/sdk-20.0.0.tar.gz",
-    "react-native-webview-messaging": "^1.2.1",
+    "react-native-webview-messaging": "^2.0.0-alpha.2",
     "webpack": "^2.6.1"
   }
 }
