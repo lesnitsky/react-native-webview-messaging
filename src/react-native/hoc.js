@@ -26,7 +26,7 @@ export const withMessaging = (WebView) => {
     }
 
     handleWebViewMessage = (event) => {
-      handleWebViewMessage(wv, event);
+      handleWebViewMessage(this.wv, event);
     }
   }
 }
