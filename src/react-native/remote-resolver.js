@@ -4,14 +4,14 @@ import { Events } from '../shared/constants';
 const webviewRemotes = new WeakMap();
 
 export function register(webview) {
-  const remote = new Remote(webview);
-  webviewRemotes.set(webview, remote);
+  const remote = new Remote(webview.originalWebview);
+  webviewRemotes.set(webview.originalWebview, remote);
 }
 
 export function destroy(webview) {
-  webviewRemotes.delete(webview);
+  webviewRemotes.delete(webview.originalWebview);
 }
 
 export function resolveRemote(webview) {
-  return webviewRemotes.get(webview);
+  return webviewRemotes.get(webview.originalWebview);
 }
