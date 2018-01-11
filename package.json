@@ -1,6 +1,6 @@
 {
   "name": "react-native-webview-messaging",
-  "version": "1.2.2",
+  "version": "2.0.0-alpha.2",
   "description": "React Native WebView extension with 2-way event-based communication API",
   "keywords": [
     "react-native",
@@ -27,11 +27,6 @@
     "webpack": "^2.6.1"
   },
   "license": "MIT",
-  "files": [
-    "dist",
-    "WebView.js",
-    "config.js"
-  ],
   "peerDependencies": {
     "react": "*",
     "react-native": "*"
