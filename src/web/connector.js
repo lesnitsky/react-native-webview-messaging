@@ -1,11 +1,22 @@
 import { Remote } from './Remote';
-import { Events } from '../shared/constants';
+import { Events, LIB_PREFIX, LIB_READY_KEY } from '../shared/constants';
 
 export async function connectToRemote() {
-  const r = new Remote();
-  global[LIB_PREFIX] = r;
+  const remote = new Remote();
+  global[LIB_PREFIX] = remote;
 
-  r.emit(Events.READY);
+  const ready = new Promise(resolve => {
+    function done() {
+      remote.emit(Events.READY);
+      resolve(remote)
+    }
 
-  return r;
+    if (global[LIB_READY_KEY]) {
+      done();
+    } else {
+      remote.once(Events.READY, done);
+    }
+  });
+
+  return await ready;
 }

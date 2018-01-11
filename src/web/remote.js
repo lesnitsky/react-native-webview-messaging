@@ -1,10 +1,11 @@
 import EventEmitter from 'events';
 import { LIB_PREFIX } from '../shared/constants';
 
-function stringify(type, payload){
+function stringify(type, payload, meta) {
   return LIB_PREFIX + JSON.stringify({
     type,
-    payload
+    payload,
+    meta,
   })
 }
 
@@ -18,18 +19,11 @@ export class Remote extends EventEmitter {
   }
 
   emit(eventName, eventData, fromRN) {
-    super.emit(eventName, eventData);
-
     if (fromRN) {
+      super.emit(eventName, eventData);
       return;
     }
 
-    window.postMessage(stringify({
-      type: 'event',
-      meta: {
-        eventName
-      },
-      payload: eventData
-    }));
+    window.postMessage(stringify('event', eventData, { eventName }));
   }
 }
