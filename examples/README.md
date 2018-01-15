@@ -1,14 +1,13 @@
-# React Native WebView Messaging Example
-
-![Demo](http://i.imgur.com/BPKQpLf.gif)
+# React Native WebView Messaging Examples
 
 ## Quick start guide
 ```sh
 git clone https://github.com/R1ZZU/react-native-webview-messaging.git
-cd ./react-native-webview-messaging/examples/expo
+cd ./react-native-webview-messaging/examples
 npm install
-npm run build-web
-npm run ios
+npm run web:build
+npm run web:watch
+npm run ios # or npm run android
 ```
 
 # LICENSE
