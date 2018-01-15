@@ -2,14 +2,25 @@ const path = require('path');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
+const isDev = process.env.NODE_ENV === 'dev';
+const library = 'react-native-webview-messaging';
+
+
+const outPath = path.join(
+  __dirname,
+ ...(isDev ? ['examples', 'expo', 'node_modules', library] : ['dist']),
+);
+
+console.log(outPath);
+
 module.exports = {
   entry: {
     web: './src/web/index.js',
   },
   output: {
-    path: path.join(__dirname, 'dist/'),
+    path: outPath,
     filename: './web/index.js',
-    library: 'react-native-webview-messaging',
+    library,
     libraryTarget: 'umd'
   },
   module: {
@@ -19,7 +30,7 @@ module.exports = {
     }],
   },
   plugins: [
-    // new webpack.optimize.UglifyJsPlugin(),
+    ...[!isDev ? new webpack.optimize.UglifyJsPlugin() : null],
     new CopyWebpackPlugin([{
       from: './src/react-native',
       to: './react-native',
@@ -30,5 +41,5 @@ module.exports = {
       from: './package.json',
       to: '.',
     }])
-  ]
+  ].filter(Boolean),
 };

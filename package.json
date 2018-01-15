@@ -10,7 +10,8 @@
   "author": "Andrei Volchenko <volchenko.andrei@gmail.com>",
   "main": "react-native",
   "scripts": {
-    "build": "npm run clean && webpack --progress",
+    "dev": "NODE_ENV=dev webpack -w",
+    "build": "NODE_ENV=production npm run clean && webpack --progress",
     "clean": "rm -rf dist"
   },
   "repository": {
