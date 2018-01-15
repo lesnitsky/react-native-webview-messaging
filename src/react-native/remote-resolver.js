@@ -13,5 +13,6 @@ export function destroy(webview) {
 }
 
 export function resolveRemote(webview) {
-  return webviewRemotes.get(webview.originalWebview);
+  const remote = webviewRemotes.get(webview.originalWebview);
+  return remote;
 }

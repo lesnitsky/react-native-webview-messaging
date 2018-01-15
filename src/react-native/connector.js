@@ -3,10 +3,7 @@ import { Events } from '../shared/constants';
 
 export async function connectToRemote(webview) {
   const remote = resolveRemote(webview);
+  remote.emit(Events.READY);
 
-  const p = new Promise(resolve => {
-    remote.once(Events.READY, () => resolve(remote));
-  });
-
-  return p;
+  return await remote.ready
 }

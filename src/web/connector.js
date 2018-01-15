@@ -5,18 +5,11 @@ export async function connectToRemote() {
   const remote = new Remote();
   global[LIB_PREFIX] = remote;
 
-  const ready = new Promise(resolve => {
-    function done() {
-      remote.emit(Events.READY);
-      resolve(remote)
-    }
+  if (global[LIB_READY_KEY]) {
+    remote.emit(Events.READY, null, true);
+  }
 
-    if (global[LIB_READY_KEY]) {
-      done();
-    } else {
-      remote.once(Events.READY, done);
-    }
-  });
+  remote.emit(Events.READY);
 
-  return await ready;
+  return await remote.ready;
 }

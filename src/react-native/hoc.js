@@ -11,7 +11,6 @@ export const withMessaging = (WebView) => {
         <WebView
           {...this.props}
           onMessage={this.handleWebViewMessage}
-          onLoad={this.emitReady}
           ref={this.refWebView}
         />
       );
@@ -27,15 +26,6 @@ export const withMessaging = (WebView) => {
 
     refWebView = (wv) => {
       this.originalWebview = wv;
-    }
-
-    emitReady = (...args) => {
-      const remote = resolveRemote(this);
-      remote.emit(Events.READY);
-
-      if (this.props.onLoad) {
-        this.props.onLoad(...args);
-      }
     }
 
     handleWebViewMessage = (event) => {
