@@ -1,86 +1,69 @@
 import React from 'react';
-import { Text, View, Button } from 'react-native';
-import { connectToRemote, withMessaging, WebView } from 'react-native-webview-messaging';
+import { Text, View, Button, StyleSheet, ScrollView, TouchableOpacity, StatusBar } from 'react-native';
+import * as Examples from './src/examples';
+import { ExamplesList } from './src/shell/ExamplesList';
+import { BackButton } from './src/shell/BackButton';
 
 export default class App extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      message: null
+      example: null,
+      examples: Object.keys(Examples)
+        .map(key => ({
+          id: key,
+          title: Examples[key].title,
+        })),
     }
   }
 
-  render() {
-    return (
-      <View style={{ flex: 1 }}>
-        <View style={{ flex: 1, borderBottomWidth: 1, padding: 20 }}>
-          <View style={{ flex: 1 }}>
-            <Text style={{ textAlign: 'center' }}>
-              {this.state.message}
-            </Text>
-          </View>
+  selectExample = (example) => {
+    this.setState({ example })
+  }
 
-          <View>
-            <Button
-              title='Send text to WebView'
-              onPress={this.sendHelloToWebView}
-            />
-            <Button
-              title='Send json to WebView'
-              onPress={this.sendJsonToWebView}
-            />
-            <Button
-              title='Emit greeting event to WebView'
-              onPress={this.emitGreetingEventToWebView}
-            />
-          </View>
+  back = () => {
+    this.selectExample(null);
+  }
+
+  render() {
+    const Component = Examples[this.state.example];
+
+    return (
+      <View style={styles.container}>
+        <StatusBar hidden />
+        <View style={styles.header}>
+          { Component ? <BackButton onPress={this.back} /> : null }
+          <Text style={styles.headerText}>{ Component ? Component.title : 'Examples' }</Text>
         </View>
-        <WebView
-          source={require('./dist/index.html')}
-          style={{ flex: 1 }}
-          ref={this._refWebView}
-        />
+
+        <View style={styles.container}>
+          { Component ?
+            <Component /> :
+            <ExamplesList
+              examples={this.state.examples}
+              onPress={this.selectExample}
+            />
+          }
+        </View>
       </View>
     );
   }
-
-  _refWebView = (webview) => {
-    this.webview = webview;
-  }
-
-  componentDidMount() {
-    connectToRemote(this.webview)
-      .then(remote => {
-        this.remote = remote;
-        this.bindListeners();
-      })
-      .catch(console.log);
-  }
-
-  bindListeners() {
-    this.remote.on('text', text => this.setState({
-      message: `Recevied text from webview: ${text}`
-    }));
-
-    this.remote.on('json', json => this.setState({
-      message: `Received json from webview: ${JSON.stringify(json)}`
-    }));
-
-    this.remote.on('greetingFromWebview', event => this.setState({
-      message: `Received "greetingFromWebview" event: ${JSON.stringify(event)}`
-    }));
-  }
-
-  sendHelloToWebView = () => {
-    this.remote.send('hello');
-  }
-
-  sendJsonToWebView = () => {
-    this.remote.sendJSON({ payload: 'hello' });
-  }
-
-  emitGreetingEventToWebView = () => {
-    this.remote.emit('greetingFromRN', { payload: 'hello' });
-  }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  header: {
+    flex: 0,
+    borderBottomWidth: 1,
+    borderBottomColor: 'silver',
+    padding: 10,
+    flexDirection: 'row',
+    backgroundColor: '#dedede',
+  },
+  headerText: {
+    fontSize: 20,
+  },
+});
