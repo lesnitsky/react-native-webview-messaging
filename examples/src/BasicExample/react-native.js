@@ -39,7 +39,7 @@ export class BasicExample extends React.Component {
           </View>
         </View>
         <WebView
-          source={require('../../dist/index.html')}
+          source={require('../../dist/BasicExample.html')}
           style={{ flex: 1 }}
           ref={this._refWebView}
         />

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Text, View, Button, StyleSheet, ScrollView, TouchableOpacity, StatusBar } from 'react-native';
-import * as Examples from './src/examples';
-import { ExamplesList } from './src/shell/ExamplesList';
-import { BackButton } from './src/shell/BackButton';
+import * as Examples from './src';
+import { ExamplesList } from './src/__shell__/ExamplesList';
+import { BackButton } from './src/__shell__/BackButton';
 
 export default class App extends React.Component {
   constructor() {
