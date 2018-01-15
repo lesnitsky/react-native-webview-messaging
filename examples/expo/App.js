@@ -1,8 +1,6 @@
 import React from 'react';
-import { Text, View, Button, WebView } from 'react-native';
-import { connectToRemote, withMessaging } from 'react-native-webview-messaging';
-
-const WebViewWithMessaging = withMessaging(WebView);
+import { Text, View, Button } from 'react-native';
+import { connectToRemote, withMessaging, WebView } from 'react-native-webview-messaging';
 
 export default class App extends React.Component {
   constructor() {
@@ -38,7 +36,7 @@ export default class App extends React.Component {
             />
           </View>
         </View>
-        <WebViewWithMessaging
+        <WebView
           source={require('./dist/index.html')}
           style={{ flex: 1 }}
           ref={this._refWebView}
