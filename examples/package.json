@@ -15,7 +15,8 @@
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
     "test": "node node_modules/jest/bin/jest.js --watch",
-    "build-web": "webpack --progress"
+    "web:build": "webpack --progress",
+    "web:watch": "webpack -w"
   },
   "jest": {
     "preset": "jest-expo"

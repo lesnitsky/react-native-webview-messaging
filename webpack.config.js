@@ -8,7 +8,7 @@ const library = 'react-native-webview-messaging';
 
 const outPath = path.join(
   __dirname,
- ...(isDev ? ['examples', 'expo', 'node_modules', library] : ['dist']),
+ ...(isDev ? ['examples', 'node_modules', library] : ['dist']),
 );
 
 console.log(outPath);
