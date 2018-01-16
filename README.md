@@ -2,6 +2,8 @@
 
 React Native WebView extension with 2-way event-based communication API
 
+> :fire: check out early release of [v2](https://github.com/R1ZZU/react-native-webview-messaging/tree/v2)
+
 ![Demo](http://i.imgur.com/BPKQpLf.gif)
 
 * [Installation](#installation)
@@ -24,12 +26,6 @@ React Native WebView extension with 2-way event-based communication API
 
 ```sh
 npm install react-native-webview-messaging
-```
-
-or with yarn
-
-```sh
-yarn add react-native-webview-messaging
 ```
 
 ## Roadmap
@@ -96,7 +92,7 @@ RNMsgChannel.sendJSON({
   payload: 'JSON from WebView'
 });
 
-RNMsgChannel.emit('custom-event-from-webview', { payload: 'Custom event from WebView' })
+RNMsgChannel.emit('custom-event-from-webview', { payload: 'Custom event from WebView' });
 ```
 
 ## API Docs
