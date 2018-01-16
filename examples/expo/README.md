@@ -6,9 +6,9 @@
 ```sh
 git clone https://github.com/R1ZZU/react-native-webview-messaging.git
 cd ./react-native-webview-messaging/examples/expo
-yarn # or npm install
-yarn build-web # or npm run build-web
-yarn ios # or npm run ios
+npm install
+npm run build-web
+npm run ios
 ```
 
 # LICENSE
