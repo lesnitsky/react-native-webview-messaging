@@ -12,7 +12,8 @@
   "scripts": {
     "dev": "NODE_ENV=dev && webpack -w",
     "build": "NODE_ENV=production && npm run clean && webpack --progress",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "examples:build": "cd examples && npm i && npm run web:build"
   },
   "repository": {
     "type": "git",
