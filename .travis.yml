@@ -1,9 +1,8 @@
 language: node_js
 node_js:
   - "8"
-branches:
-  only:
-    - v2
+cache:
+  yarn: true
 before_script:
   - "npm run examples:build"
 install: true
@@ -12,5 +11,5 @@ deploy:
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
   on:
-    branch: v2
+    branch: master
   local_dir: ${TRAVIS_BUILD_DIR}/examples/dist
