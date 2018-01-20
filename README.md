@@ -12,7 +12,7 @@ npm install react-native-webview-messaging@next
 
 ## Examples
 
-[Examples](https://github.com/R1ZZU/react-native-webview-messaging/tree/v2/examples)
+[Examples](https://github.com/R1ZZU/react-native-webview-messaging/tree/master/examples)
 
 ## Usage
 
