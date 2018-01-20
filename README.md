@@ -2,7 +2,7 @@
 
 React Native WebView extension with 2-way event-based communication API
 
-:warning: this is v2 branch which is not yet stable. Check out [master branch](https://github.com/R1ZZU/react-native-webview-messaging) for v1 docs
+:warning: this is v2 branch which is not yet stable. Check out [v1 branch](https://github.com/R1ZZU/react-native-webview-messaging/tree/v1) for v1 docs
 
 ## Installation
 
