@@ -2,7 +2,7 @@
 
 React Native WebView extension with 2-way event-based communication API
 
-> :fire: check out early release of [v2](https://github.com/R1ZZU/react-native-webview-messaging/tree/v2)
+> :fire: check out early release of [v2](https://github.com/R1ZZU/react-native-webview-messaging)
 
 ![Demo](http://i.imgur.com/BPKQpLf.gif)
 
@@ -35,8 +35,8 @@ npm install react-native-webview-messaging
 
 ## Examples
 
-* [Expo SDK](https://github.com/R1ZZU/react-native-webview-messaging/tree/master/examples/expo)
-* [React Native](https://github.com/R1ZZU/react-native-webview-messaging/tree/master/examples/react-native)
+* [Expo SDK](https://github.com/R1ZZU/react-native-webview-messaging/tree/v1/examples/expo)
+* [React Native](https://github.com/R1ZZU/react-native-webview-messaging/tree/v1/examples/react-native)
 
 ### React Native view
 
