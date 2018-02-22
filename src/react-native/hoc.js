@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
-import { handleWebViewMessage } from './handler';
-import { register, destroy, resolveRemote } from './remote-resolver';
-import { Events } from '../shared/constants';
+import { handleWebViewMessage } from "./handler";
+import { register, destroy, resolveRemote } from "./remote-resolver";
+import { Events } from "../shared/constants";
 
-export const withMessaging = (WebView) => {
+export const withMessaging = WebView => {
   return class WebViewWithMessaging extends React.PureComponent {
     render() {
       const patchPostMessageFunction = () => {
@@ -15,20 +15,19 @@ export const withMessaging = (WebView) => {
 
         patchedPostMessage.toString = () => {
           return String(Object.hasOwnProperty).replace(
-            'hasOwnProperty',
-            'postMessage'
+            "hasOwnProperty",
+            "postMessage"
           );
         };
         window.postMessage = patchedPostMessage;
       };
 
       const patchPostMessageJsCode =
-        '(' + String(patchPostMessageFunction) + ')();';
+        "(" + String(patchPostMessageFunction) + ")();";
       return (
         <WebView
           {...this.props}
           injectedJavaScript={patchPostMessageJsCode}
-          javaScriptEnabled={true}
           onMessage={this.handleWebViewMessage}
           ref={this.refWebView}
         />
@@ -43,16 +42,16 @@ export const withMessaging = (WebView) => {
       destroy(this);
     }
 
-    refWebView = (wv) => {
+    refWebView = wv => {
       this.originalWebview = wv;
-    }
+    };
 
-    handleWebViewMessage = (event) => {
+    handleWebViewMessage = event => {
       handleWebViewMessage(this, event);
 
       if (this.props.onMessage) {
         this.props.onMessage(event);
       }
-    }
-  }
-}
+    };
+  };
+};
