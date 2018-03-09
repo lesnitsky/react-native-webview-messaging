@@ -4,26 +4,27 @@ import { handleWebViewMessage } from './handler';
 import { register, destroy, resolveRemote } from './remote-resolver';
 import { Events } from '../shared/constants';
 
+const patchPostMessageFunction = () => {
+  var originalPostMessage = window.postMessage;
+  var patchedPostMessage = function(message, targetOrigin, transfer) {
+    originalPostMessage(message, targetOrigin, transfer);
+  };
+
+  patchedPostMessage.toString = () => {
+    return String(Object.hasOwnProperty).replace(
+      'hasOwnProperty',
+      'postMessage'
+    );
+  };
+  window.postMessage = patchedPostMessage;
+};
+
+const patchPostMessageJsCode =
+  '(' + String(patchPostMessageFunction) + ')();';
+
 export const withMessaging = (WebView) => {
   return class WebViewWithMessaging extends React.PureComponent {
     render() {
-      const patchPostMessageFunction = () => {
-        var originalPostMessage = window.postMessage;
-        var patchedPostMessage = function(message, targetOrigin, transfer) {
-          originalPostMessage(message, targetOrigin, transfer);
-        };
-
-        patchedPostMessage.toString = () => {
-          return String(Object.hasOwnProperty).replace(
-            'hasOwnProperty',
-            'postMessage'
-          );
-        };
-        window.postMessage = patchedPostMessage;
-      };
-
-      const patchPostMessageJsCode =
-        '(' + String(patchPostMessageFunction) + ')();';
       return (
         <WebView
           {...this.props}
