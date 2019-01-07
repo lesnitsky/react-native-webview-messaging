@@ -1,4 +1,4 @@
-import { Remote } from './Remote';
+import { Remote } from './remote';
 import { Events, LIB_PREFIX, LIB_READY_KEY } from '../shared/constants';
 
 export async function connectToRemote() {
