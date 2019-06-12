@@ -2,6 +2,11 @@
 
 React Native WebView extension with 2-way event-based communication API
 
+> Support me
+
+![GitHub stars](https://img.shields.io/github/stars/lesnitsky/react-native-webview-messaging.svg?style=social)
+![Twitter Follow](https://img.shields.io/twitter/follow/lesnitsky_a.svg?label=Follow%20me&style=social)
+
 :warning: this is v2 branch which is not yet stable. Check out [v1 branch](https://github.com/R1ZZU/react-native-webview-messaging/tree/v1) for v1 docs
 
 ## Installation
@@ -81,3 +86,8 @@ connectToRemote()
 ## LICENSE
 
 MIT
+
+## Support me
+
+![GitHub stars](https://img.shields.io/github/stars/lesnitsky/react-native-webview-messaging.svg?style=social)
+![Twitter Follow](https://img.shields.io/twitter/follow/lesnitsky_a.svg?label=Follow%20me&style=social)
