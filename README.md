@@ -85,7 +85,6 @@ connectToRemote()
 
 MIT
 
-## Support me
 
-![GitHub stars](https://img.shields.io/github/stars/lesnitsky/react-native-webview-messaging.svg?style=social)
-![Twitter Follow](https://img.shields.io/twitter/follow/lesnitsky_a.svg?label=Follow%20me&style=social)
+[![GitHub stars](https://img.shields.io/github/stars/lesnitsky/react-native-webview-messaging.svg?style=social)](https://github.com/lesnitsky/react-native-webview-messaging)
+[![Twitter Follow](https://img.shields.io/twitter/follow/lesnitsky_a.svg?label=Follow%20me&style=social)](https://twitter.com/lesnitsky_a)
