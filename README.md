@@ -3,7 +3,7 @@
 React Native WebView extension with 2-way event-based communication API
 
 [![GitHub stars](https://img.shields.io/github/stars/lesnitsky/react-native-webview-messaging.svg?style=social)](https://github.com/lesnitsky/react-native-webview-messaging)
-[![Twitter Follow](https://img.shields.io/twitter/follow/lesnitsky_a.svg?label=Follow%20me&style=social)](https://twitter.com/lesnitsky_a)
+[![Twitter Follow](https://img.shields.io/twitter/follow/lesnitsky_dev.svg?label=Follow%20me&style=social)](https://twitter.com/lesnitsky_dev)
 
 :warning: this is v2 branch which is not yet stable. Check out [v1 branch](https://github.com/R1ZZU/react-native-webview-messaging/tree/v1) for v1 docs
 
@@ -87,4 +87,4 @@ MIT
 
 
 [![GitHub stars](https://img.shields.io/github/stars/lesnitsky/react-native-webview-messaging.svg?style=social)](https://github.com/lesnitsky/react-native-webview-messaging)
-[![Twitter Follow](https://img.shields.io/twitter/follow/lesnitsky_a.svg?label=Follow%20me&style=social)](https://twitter.com/lesnitsky_a)
+[![Twitter Follow](https://img.shields.io/twitter/follow/lesnitsky_dev.svg?label=Follow%20me&style=social)](https://twitter.com/lesnitsky_dev)
