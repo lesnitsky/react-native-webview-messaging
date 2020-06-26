@@ -1,6 +1,6 @@
 {
   "name": "react-native-webview-messaging",
-  "version": "2.0.0-alpha.4",
+  "version": "2.0.0-alpha.5",
   "description": "React Native WebView extension with 2-way event-based communication API",
   "keywords": [
     "react-native",
@@ -8,7 +8,13 @@
     "communication"
   ],
   "author": "Andrei Volchenko <volchenko.andrei@gmail.com>",
-  "main": "react-native",
+  "contributors": [
+    {
+      "name": "Jérémie Zarca",
+      "email": "jeremie.zarca@gmail.com"
+    }
+  ],
+  "main": "src/index.js",
   "scripts": {
     "dev": "NODE_ENV=dev && webpack -w",
     "build": "NODE_ENV=production && npm run clean && webpack --progress",
@@ -34,6 +40,7 @@
     "react-native": "*"
   },
   "dependencies": {
-    "events": "^1.1.1"
+    "events": "^1.1.1",
+    "react-native-webview": "^3.0.0"
   }
 }

@@ -24,21 +24,27 @@ npm install react-native-webview-messaging@next
 ```javascript
 import React, { Component } from 'react';
 import { View, TouchableHighlight } from 'react-native';
-import { connectToRemote, WebView } from 'react-native-webview-messaging';
+import { NativeMessaging } from 'react-native-webview-messaging';
+const { connectToRemote, WebView } = NativeMessaging;
 
 export class ExampleView extends Component {
   render() {
     return (
       <View>
         <WebView
-          ref={ webview => { this.webview = webview; }}
-          source={ require('./some-page.html') }
+          ref={webview => {
+            this.webview = webview;
+          }}
+          source={require('./some-page.html')}
         />
-        <TouchableHighlight onPress={this.sendMessageToWebView} underlayColor='transparent'>
+        <TouchableHighlight
+          onPress={this.sendMessageToWebView}
+          underlayColor="transparent"
+        >
           <Text>Send message to WebView</Text>
         </TouchableHighlight>
       </View>
-    )
+    );
   }
 
   async componentDidMount() {
@@ -46,7 +52,9 @@ export class ExampleView extends Component {
 
     this.remote.on('text', text => console.log(text));
     this.remote.on('json', json => console.log(json));
-    this.remote.on('custom-event-from-webview', eventData => console.log(eventData));
+    this.remote.on('custom-event-from-webview', eventData =>
+      console.log(eventData)
+    );
   }
 
   sendMessageToWebView = () => {
@@ -56,29 +64,33 @@ export class ExampleView extends Component {
 
     this.remote.send('plain text from RN');
 
-    this.remote.emit('custom-event-from-rn', { payload: 'Custom event from RN' });
-  }
+    this.remote.emit('custom-event-from-rn', {
+      payload: 'Custom event from RN'
+    });
+  };
 }
 ```
 
 ### Web
 
 ```javascript
-import { connectToRemote } from 'react-native-webview-messaging/web';
+import { WebMessaging } from 'react-native-webview-messaging';
+const { connectToRemote } = WebMessaging;
 
-connectToRemote()
-  .then(remote => {
-    remote.on('text', text => console.log(text));
-    remote.on('json', json => console.log(json));
-    remote.on('custom-event-from-rn', data => console.log(data));
+connectToRemote().then(remote => {
+  remote.on('text', text => console.log(text));
+  remote.on('json', json => console.log(json));
+  remote.on('custom-event-from-rn', data => console.log(data));
 
-    remote.send('plain text from WebView');
-    remote.sendJSON({
-      payload: 'JSON from WebView'
-    });
-
-    remote.emit('custom-event-from-webview', { payload: 'Custom event from WebView' });
+  remote.send('plain text from WebView');
+  remote.sendJSON({
+    payload: 'JSON from WebView'
   });
+
+  remote.emit('custom-event-from-webview', {
+    payload: 'Custom event from WebView'
+  });
+});
 ```
 
 ## LICENSE
